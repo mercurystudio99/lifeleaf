@@ -1,14 +1,24 @@
 import 'package:fitness/common/colo_extension.dart';
 import 'package:flutter/material.dart';
 
+import '../../common/common.dart';
+import '../../common/globals.dart' as global;
+
 class MealFoodScheduleRow extends StatelessWidget {
   final Map mObj;
   final int index;
+  final String category;
+  final VoidCallback callback;
   const MealFoodScheduleRow(
-      {super.key, required this.mObj, required this.index});
+      {super.key,
+      required this.mObj,
+      required this.index,
+      required this.category,
+      required this.callback});
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, dynamic>> list = getIndexArr(category);
     return Container(
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 2),
         child: Row(
@@ -56,14 +66,14 @@ class MealFoodScheduleRow extends StatelessWidget {
                 ],
               ),
             ),
-            // IconButton(
-            //   onPressed: () {},
-            //   icon: Image.asset(
-            //     "assets/img/next_go.png",
-            //     width: 25,
-            //     height: 25,
-            //   ),
-            // )
+            IconButton(
+              onPressed: () {
+                list.removeAt(index);
+                setIndexArr(category, list);
+                callback();
+              },
+              icon: Icon(Icons.remove_circle_outline, color: TColor.gray),
+            )
           ],
         ));
   }

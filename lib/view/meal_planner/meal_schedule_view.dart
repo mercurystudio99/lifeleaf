@@ -78,6 +78,10 @@ class _MealScheduleViewState extends State<MealScheduleView> {
     _selectedDateAppBBar = DateTime.now();
   }
 
+  void _callback() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
@@ -222,6 +226,8 @@ class _MealScheduleViewState extends State<MealScheduleView> {
                       return MealFoodScheduleRow(
                         mObj: mObj,
                         index: index,
+                        category: "Breakfast",
+                        callback: _callback,
                       );
                     },
                   ),
@@ -257,6 +263,8 @@ class _MealScheduleViewState extends State<MealScheduleView> {
                         return MealFoodScheduleRow(
                           mObj: mObj,
                           index: index,
+                          category: "Lunch",
+                          callback: _callback,
                         );
                       }),
                   Padding(
@@ -291,6 +299,8 @@ class _MealScheduleViewState extends State<MealScheduleView> {
                       return MealFoodScheduleRow(
                         mObj: mObj,
                         index: index,
+                        category: "Dessert",
+                        callback: _callback,
                       );
                     },
                   ),
@@ -326,6 +336,8 @@ class _MealScheduleViewState extends State<MealScheduleView> {
                       return MealFoodScheduleRow(
                         mObj: mObj,
                         index: index,
+                        category: "Dinner",
+                        callback: _callback,
                       );
                     },
                   ),
