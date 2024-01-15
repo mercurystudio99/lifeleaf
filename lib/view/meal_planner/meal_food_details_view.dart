@@ -314,7 +314,7 @@ class _MealFoodDetailsViewState extends State<MealFoodDetailsView> {
                                   list.add({
                                     "name": cObj["name"],
                                     "time": "07:00am",
-                                    "image": "assets/img/honey_pan.png"
+                                    "image": cObj["image"]
                                   });
                                 }
                                 setIndexArr(
